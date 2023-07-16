@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [HideInInspector]
     private Rigidbody2D myRB;
 
+    private Animator myAnimator;
+
     public bool isOnGround, isMoving, isDie;
     void Start()
     {
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
-            Debug.Log("Tecla Espaço pressionada!");
+            
         }
     }
 
@@ -35,7 +37,7 @@ public class Player : MonoBehaviour
         if (isDie)
         {
             isDie = false;
-            //animação de dead false
+            myAnimator.SetBool("Die", false);
         }
     }
 
@@ -44,14 +46,15 @@ public class Player : MonoBehaviour
         if (isDie)
         {
             isMoving = false;
-            //animação de dead true
-            //animação de run false
+            myAnimator.SetBool("Die", true);
+            myAnimator.SetBool("Run", false);
         }
     }
     
     private void Initialize()
     {
         myRB = this.gameObject.GetComponent<Rigidbody2D>();
+        myAnimator = this.gameObject.GetComponent<Animator>();
         isOnGround = true;
         isMoving = false;
         isDie = false;
@@ -66,7 +69,7 @@ public class Player : MonoBehaviour
     {
         if (isMoving)
         {
-            //animacao run true
+            myAnimator.SetBool("Run", true);
             return;
         }
     }
@@ -77,7 +80,7 @@ public class Player : MonoBehaviour
         {
             myRB.AddForce(transform.up * jumpForce);
             isOnGround = false;
-            //animação de pulo true
+            myAnimator.SetBool("Jump", true);
         }
     }
 
@@ -86,7 +89,7 @@ public class Player : MonoBehaviour
         if(myRB.velocity.y == 0 && !isOnGround)
         {
             isOnGround = true;
-            //Animação de pulo false
+            myAnimator.SetBool("Jump", false);
         }
     }
 }
