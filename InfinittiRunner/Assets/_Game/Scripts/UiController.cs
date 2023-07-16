@@ -5,7 +5,7 @@ using TMPro;
 
 public class UiController : MonoBehaviour
 {
-    public TMP_Text txtScore;
+    public TMP_Text txtScore, txtTap;
 
     private GameController gameController;
     void Start()

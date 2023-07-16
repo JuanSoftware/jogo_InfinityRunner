@@ -7,11 +7,14 @@ public class GroundSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] grounds;
 
+    
+
     private float lastX;
 
     void Start()
     {
         GetGroundAndSetLastX();
+        
     }
 
     void GetGroundAndSetLastX()
@@ -51,4 +54,9 @@ public class GroundSpawner : MonoBehaviour
             }
         }
     }
+
+
+    //adicionar aleatoriamente
+    
+
 }

@@ -25,11 +25,7 @@ public class Player : MonoBehaviour
         {
             transform.Translate(Vector2.right * (speed * Time.deltaTime), Space.World);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-            
-        }
+        
     }
 
     void Restart()
