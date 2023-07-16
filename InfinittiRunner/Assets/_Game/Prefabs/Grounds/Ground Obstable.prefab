@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2226698430426356927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -209,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2445293349566375317}
   - component: {fileID: 7036518567085353911}
+  - component: {fileID: 4256838013751590241}
   m_Layer: 0
   m_Name: Ground Obstable
   m_TagString: Ground
@@ -279,3 +280,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &4256838013751590241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8018942969490661870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b57a2b7e471f894b93df598fc991a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 6956710929843090761, guid: 31dfaf3310f2d704bace567a259d8f21, type: 3}
+  spawnPoint: {fileID: 3685461008664640479}
