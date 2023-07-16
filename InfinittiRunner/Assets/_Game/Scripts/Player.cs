@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     private Animator myAnimator;
 
-    public bool isOnGround, isMoving, isDie;
+    public bool isOnGround, isMoving;
     void Start()
     {
         Initialize();
@@ -34,16 +34,19 @@ public class Player : MonoBehaviour
 
     void Restart()
     {
-        if (isDie)
+        GameController tempGameController = FindObjectOfType<GameController>();
+        
+        if (tempGameController.isDie)
         {
-            isDie = false;
+            tempGameController.isDie = false;
             myAnimator.SetBool("Die", false);
         }
     }
 
     void Die()
     {
-        if (isDie)
+        GameController tempGameController = FindObjectOfType<GameController>();
+        if (tempGameController.isDie)
         {
             isMoving = false;
             myAnimator.SetBool("Die", true);
@@ -57,7 +60,9 @@ public class Player : MonoBehaviour
         myAnimator = this.gameObject.GetComponent<Animator>();
         isOnGround = true;
         isMoving = false;
-        isDie = false;
+        GameController tempGameController = FindObjectOfType<GameController>();
+        tempGameController.isDie = false;
+
 
         InvokeRepeating("CheckOnGround", 0.1f, 0.1f);
         InvokeRepeating("Run", 0.1f, 0.1f);
@@ -70,6 +75,8 @@ public class Player : MonoBehaviour
         if (isMoving)
         {
             myAnimator.SetBool("Run", true);
+            GameController tempGameController = FindObjectOfType<GameController>();
+            tempGameController.gameStart = true;
             return;
         }
     }

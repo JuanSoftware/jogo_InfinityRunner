@@ -8,8 +8,8 @@ public class PlayerCollider : MonoBehaviour
     {
         if (target.gameObject.CompareTag("Obstacle"))
         {
-            Player tempPlayer = this.gameObject.GetComponent<Player>();
-            tempPlayer.isDie = true;
+            GameController tempGameController = FindObjectOfType<GameController>();
+            tempGameController.isDie = true;
         }
     }
 }
